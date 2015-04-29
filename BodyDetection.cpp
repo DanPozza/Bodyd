@@ -76,7 +76,7 @@ int main(int argc, char* argv[])
 			cv::waitKey(0);
 		}
 		detection(image);
-		imshow(window_name, image);
+	//	imshow(window_name, image);
 		waitKey(50);
 
 	}
@@ -104,7 +104,7 @@ void detection(Mat frame)
 		ellipse(frame, center, Size(bodys[j].width*0.5, bodys[j].height*0.5), 0, 0, 360, Scalar(255, 0, 255), 4, 8, 0);
 	}
 
-	imshow(window_name, frame);
+	//imshow(window_name, frame);
 }
 
 
