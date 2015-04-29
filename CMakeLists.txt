@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 2.8)
+project( Body )
+find_package( OpenCV REQUIRED )
+add_executable( Body BodyDetection.cpp )
+target_link_libraries( Body ${OpenCV_LIBS} )
