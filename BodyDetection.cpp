@@ -22,7 +22,7 @@ using namespace cv;
 void detection(Mat frame);
 
 /** Global variables*/
-String body_cascade_name = "/opencv/opencv-3.0.0-alpha/data/haarcascades/haarcascade_frontalface_alt.xml";
+String body_cascade_name = "/home/ubuntu/opencv/opencv-3.0.0-alpha/data/haarcascades/haarcascade_frontalface_alt.xml";
 CascadeClassifier body_cascade;
 string window_name = "Capture - body detection";
 //RNG rng(12345);
