@@ -49,9 +49,9 @@ int main(int argc, char* argv[])
 	    // the camera will be deinitialized automatically in VideoCapture destructor
 	    return 0;*/
 
-	cv::VideoCapture vcap;
-	cv::Mat image;    // This works on a D-Link CDS-932L
-	const std::string videoStreamAddress = "http://10.20.37.18:8082";
+	VideoCapture vcap;
+	Mat image;    
+	const string videoStreamAddress = "http://192.168.1.134:8082";
 
 	//open the video stream and make sure it's opened
 
@@ -64,20 +64,22 @@ int main(int argc, char* argv[])
 
 	if (!vcap.isOpened())
 	{
-		std::cout << "Error opening video stream or file " << std::endl;
+		cout << "Error opening video stream or file " <<endl;
 		return -1;
 	}
-
+        bool result;
 	while (1)
 	{
 		if (!vcap.read(image))
 		{
-			std::cout << "No frame" << std::endl;
-			cv::waitKey(0);
+			cout << "No frame" << endl;
+			waitKey(0);
 		}
-		detection(image);
-	//	imshow(window_name, image);
-		waitKey(50);
+	      result=	detection(image);
+	      if (result == true){cout<<"detected"<<endl;}
+	      else {cout<<"nobody"<<endl;}
+	  
+	
 
 	}
 
@@ -86,7 +88,7 @@ int main(int argc, char* argv[])
 }
 
 //######################################################################################à
-void detection(Mat frame)
+bool detection(Mat frame)
 {
 	vector<Rect> bodys;
 	Mat frame_gray;
@@ -103,8 +105,8 @@ void detection(Mat frame)
 		Point center(bodys[j].x + bodys[j].width*0.5, bodys[j].y + +bodys[j].height*0.5);
 		ellipse(frame, center, Size(bodys[j].width*0.5, bodys[j].height*0.5), 0, 0, 360, Scalar(255, 0, 255), 4, 8, 0);
 	}
-
-	//imshow(window_name, frame);
+        if(bodys != NULL){return true;}
+       else{	return false;}
 }
 
 
