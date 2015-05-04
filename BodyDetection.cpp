@@ -168,7 +168,7 @@ int main(int argc, char* argv[])
 	{
 		printf("--(!)Error loading\n"); return -1;
 	}
-	vcap.open(videoStreamAddress);
+	vcap(videoStreamAddress);
 
 
 	if (!vcap.isOpened())
