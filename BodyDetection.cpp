@@ -160,7 +160,7 @@ int main(int argc, char* argv[])
 
 	VideoCapture vcap;
 	Mat image;
-	const string videoStreamAddress = "http://10.20.37.18:8082";
+	const string videoStreamAddress = "http://10.20.37.18:8082/mjpg/video.mjpg";
 
 	//open the video stream and make sure it's opened
 
