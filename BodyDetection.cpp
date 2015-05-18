@@ -24,45 +24,10 @@ string window_name = "Capture - body detection";
 
 int main(int argc, char* argv[])
 {
-	/*CvCapture* capture;
-	Mat frame;
-
-
-	if (!body_cascade.load("C:/opencv/sources/data/haarcascades/haarcascade_frontalface_alt2.xml"))
-	{
-		printf("--(!)Error loading\n"); return -1;
-	};
-
-	capture = cvCaptureFromCAM(0);
-	
-
-	if (capture != NULL)
-	{
-		while (1)
-		{
-			frame = cvQueryFrame(capture);
-			if (!frame.empty())
-			{
-				detection(frame);
-			}
-			else {
-				printf(" --(!) No captured frame -- Break!");
-				break;
-			}
-			int d = waitKey(100);
-			if ((char)d == 'd')
-			{
-				break;
-			}
-		}
-	}
-	return 1;*/
 
 	cv::VideoCapture vcap;
-	cv::Mat image;    // This works on a D-Link CDS-932L
+	cv::Mat image;  
 	//const std::string videoStreamAddress = "http://192.168.1.121:8082";
-
-	//open the video stream and make sure it's opened
 
 	if (!body_cascade.load("C:/opencv/sources/data/haarcascades/haarcascade_frontalface_alt2.xml"))
 	{
@@ -125,11 +90,11 @@ bool detection(Mat frame)
 
 	cvtColor(frame, frame_gray, CV_BGR2GRAY);
 	equalizeHist(frame_gray, frame_gray);
-	/**detect body */
+	/*detect body */
 
 	body_cascade.detectMultiScale(frame_gray, bodys, 1.8, 2, 3, Size(30, 30));
 
-	/**draw ellipse*/
+	/*disegna l'ellisse*/
 	for (unsigned int j = 0; j < bodys.size(); j++)
 	{
 		Point center(bodys[j].x + bodys[j].width*0.5, bodys[j].y + +bodys[j].height*0.5);
