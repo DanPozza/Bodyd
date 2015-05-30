@@ -17,6 +17,7 @@ using namespace cv;
 bool detection(Mat frame);
 
 /** Global variables*/
+//here you modify the path of haar classifier
 String body_cascade_name = "/home/nico/opencv-3.0.0-rc1/data/haarcascades/haarcascade_frontalface_default.xml";//ubuntu
 //String body_cascade_name = "C:/opencv/sources/data/haarcascades/haarcascade_frontalface_default.xml";//windows
 CascadeClassifier body_cascade;
