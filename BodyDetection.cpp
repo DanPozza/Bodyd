@@ -32,7 +32,7 @@ int main(int argc, char* argv[])
 	cv::VideoCapture vcap;
 
 	cv::Mat image;    // This works on a D-Link CDS-932L
-	const std::string videoStreamAddress = "http://localhost:8082";
+	const std::string videoStreamAddress = "http://localhost:8082";//put here the camera IP 
 
 	//open the video stream and make sure it's opened
 
@@ -41,7 +41,7 @@ int main(int argc, char* argv[])
 		printf("--(!)Error loading\n"); return -1;
 	}
 
-	if (!vcap.open(0))
+	if (!vcap.open(0))//use videoStreamAddress in brackets if you want to use IP camera
 	{
 		std::cout << "Error opening video stream or file" << std::endl;
 		return -1;
