@@ -21,8 +21,7 @@ String body_cascade_name = "/home/nico/opencv-3.0.0-rc1/data/haarcascades/haarca
 //String body_cascade_name = "C:/opencv/sources/data/haarcascades/haarcascade_frontalface_default.xml";//windows
 CascadeClassifier body_cascade;
 string window_name = "Capture - body detection Local pc";
-string window_name_1 = "Capture - body detection IP camera";
-//RNG rng(12345);
+
 
 
 
@@ -31,7 +30,7 @@ int main(int argc, char* argv[])
 
 	cv::VideoCapture vcap;
 
-	cv::Mat image;    // This works on a D-Link CDS-932L
+	cv::Mat image;    
 	const std::string videoStreamAddress = "http://localhost:8082";//put here the camera IP 
 
 	//open the video stream and make sure it's opened
@@ -68,14 +67,14 @@ int main(int argc, char* argv[])
 		{ 
 			cout << "detected" << endl;
 
-		ofstream file("/home/nico/node/Npersone.txt"); //se il file non esiste lo crea, altrimenti lo sovrascrive!
+		ofstream file("/home/nico/node/Npersone.txt"); //se il file non esiste lo crea, altrimenti lo sovrascrive!used on ubuntu system
 	        if(!file) {
 				cout<<"Errore nella creazione del file!";
 				return -1;
 	   		  }
 
 		    file <<persone;
-		    file.close(); //chiudo il file
+		    file.close(); //close the file
 
 			sprintf(x, "curl http://localhost:3000/geofence");
 			z.assign(x);
@@ -88,9 +87,8 @@ int main(int argc, char* argv[])
 		{
 			i = 0;
 			////creiamo un tempo d'attesa di 5 (9000) minuti prima di inviare un'altra mail in presenza di persone
-			for (i; i < 900;i++)
+			for (i; i < 9000;i++)
 			{
-				
 				vcap.read(image);
 				imshow(window_name, image);
 				waitKey(10);
