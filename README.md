@@ -5,8 +5,8 @@ cd Bodyd
 
 than write these commands in the console:
 
-cmake .
-make
-./Bodyd
+$ cmake .
+$ make
+$ ./Bodyd
 
 in this way you can run the Body detection software part.
