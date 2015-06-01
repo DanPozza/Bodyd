@@ -67,7 +67,7 @@ int main(int argc, char* argv[])
 		if ((result == true) && detect==true)
 		{ 
 			cout << "detected" << endl;
-
+		//sostituire il percosro per il file Npersone.txt
 		ofstream file("/home/nico/node/Npersone.txt"); //se il file non esiste lo crea, altrimenti lo sovrascrive!used on ubuntu system
 	        if(!file) {
 				cout<<"Errore nella creazione del file!";
