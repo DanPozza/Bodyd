@@ -29,10 +29,10 @@ string window_name = "Capture - body detection Local pc";
 int main(int argc, char* argv[])
 {
 
-	cv::VideoCapture vcap;
+	VideoCapture vcap;
 
-	cv::Mat image;    
-	const std::string videoStreamAddress = "http://localhost:8082";//put here the camera IP 
+	Mat image;    
+	const string videoStreamAddress = "http://localhost:8082";//put here the camera IP 
 
 	//open the video stream and make sure it's opened
 
@@ -43,7 +43,7 @@ int main(int argc, char* argv[])
 
 	if (!vcap.open(0))//use videoStreamAddress in brackets if you want to use IP camera
 	{
-		std::cout << "Error opening video stream or file" << std::endl;
+		cout << "Error opening video stream or file" <<endl;
 		return -1;
 	}
 	
